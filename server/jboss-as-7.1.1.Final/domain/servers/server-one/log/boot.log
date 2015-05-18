@@ -1,0 +1,6 @@
+17:09:48,223 INFO  [org.jboss.modules] (main) JBoss Modules version 1.1.1.GA
+17:09:48,423 INFO  [org.jboss.msc] (main) JBoss MSC version 1.0.2.GA
+17:09:48,460 INFO  [org.jboss.as] (MSC service thread 1-4) JBAS015899: JBoss AS 7.1.1.Final "Brontes" starting
+17:09:48,519 INFO  [org.xnio] (MSC service thread 1-6) XNIO Version 3.0.3.GA
+17:09:48,529 INFO  [org.xnio.nio] (MSC service thread 1-6) XNIO NIO Implementation Version 3.0.3.GA
+17:09:48,536 INFO  [org.jboss.remoting] (MSC service thread 1-6) JBoss Remoting version 3.2.3.GA

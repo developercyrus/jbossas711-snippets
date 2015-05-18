@@ -1,0 +1,96 @@
+<project 
+        xmlns="http://maven.apache.org/POM/4.0.0" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <!-- 
+        Comment:
+        1.  jboss-as-7.1.1 can't run with JDK8, it's got hung. But sometimes it works, 
+            known issue: 
+                http://stackoverflow.com/questions/22899497/jboss-seems-to-hang-on-startup-at-the-command-line    
+                https://community.jboss.org/message/808212        
+        2.  if the machine is joined with domain (active directory?!), and running with standalone.bat to the server, it either takes a long 
+            time or even no response.
+            a) sometimes success        jboss-as-7.1.1 + JDK8 (64bit) + domain (sc.local)  + standalone.bat
+            c) success                  jboss-as-7.1.1 + JDK7 (32bit) + domain (hktdc.org) + standalone.bat 
+            b) success                  jboss-as-7.1.1 + JDK8 (64bit) + domain (sc.local)  + domain.bat
+            
+                              
+        Environment:
+        1.  Windows 7 64 bit (assume OS installed in C:\Windows)
+        2.  Eclipse 4.4
+        3.  JDK 8.0 (doesn't work, required JDK 7.0)
+        4.  Jboss AS 7.1.1 Final (embedded as project, located in \server\jboss-as-7.1.1-Final, downloaded from http://jbossas.jboss.org/downloads/)
+
+        Remarks
+        1.  initialize the jboss server by running \server\jboss-as-7.1.1-Final\bin\add-user.bat, reference: http://www.mastertheboss.com/jboss-server/jboss-as-7/adding-users-with-jboss-as-7
+        2.  create user with "admin/password"
+        3.  start jboss server, reference: https://docs.jboss.org/author/display/AS71/Command+line+parameters 
+            a) non-domain: by running \server\jboss-as-7.1.1-Final\bin\standalone.bat
+            b) domain: by running \server\jboss-as-7.1.1-Final\bin\domain.bat
+        4.  access the web admin console http://localhost:9990/
+        
+        Approach1 - all automate
+        1.  "mvn jboss-as:start". This will include   
+
+
+        Reference:
+        https://docs.jboss.org/jbossas/7/plugins/maven/latest/examples/complex-example.html
+        https://docs.jboss.org/author/display/AS71/Admin+Guide
+    -->
+        
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding> 
+    </properties>
+    
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>javaee-jbossas711-snippets</groupId>
+    <artifactId>javaee-jbossas711-snippets</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+
+    <build>           
+        <plugins>   
+        
+            <!-- initialize -->         
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <version>7.7.Final</version>
+                <configuration>
+                    <jbossHome>${basedir}\server\jboss-as-7.1.1.Final</jbossHome>
+                    <hostname>localhost</hostname>
+                    <port>9999</port>
+                    <name>admin</name>
+                    <password>password</password>                   
+                </configuration>
+                <executions>                
+                    <execution>
+                        <id>start the server</id>
+                        <phase>pre-integeration-test</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                        </configuration>
+                    </execution>
+                </executions>        
+            </plugin>
+            
+
+        </plugins>    
+    </build>     
+
+    <dependencies>
+
+        <!-- javax -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>6.0</version>
+        </dependency>
+        
+    </dependencies>             
+</project>

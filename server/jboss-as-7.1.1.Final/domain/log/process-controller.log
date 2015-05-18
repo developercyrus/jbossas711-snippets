@@ -1,0 +1,7 @@
+17:09:45,999 INFO  [org.jboss.modules] (main) JBoss Modules version 1.1.1.GA
+17:09:46,181 INFO  [org.jboss.as.process.Host Controller.status] (main) JBAS012017: Starting process 'Host Controller'
+17:09:47,857 INFO  [org.jboss.as.process.Server:server-one.status] (ProcessController-threads - 3) JBAS012017: Starting process 'Server:server-one'
+17:09:47,860 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 3) JBAS012017: Starting process 'Server:server-two'
+17:10:27,900 INFO  [org.jboss.as.process.Server:server-two.status] (reaper for Server:server-two) JBAS012010: Process 'Server:server-two' finished with an exit status of -1073741510
+17:10:27,904 INFO  [org.jboss.as.process.Server:server-two.status] (ProcessController-threads - 3) JBAS012017: Starting process 'Server:server-two'
+17:10:27,912 INFO  [org.jboss.as.process.Server:server-one.status] (reaper for Server:server-one) JBAS012010: Process 'Server:server-one' finished with an exit status of -1073741510
