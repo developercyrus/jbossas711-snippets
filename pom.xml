@@ -55,7 +55,7 @@
     <build>           
         <plugins>   
         
-            <!-- initialize -->         
+            <!-- pre-integration-test -->         
             <plugin>
                 <groupId>org.jboss.as.plugins</groupId>
                 <artifactId>jboss-as-maven-plugin</artifactId>
@@ -67,17 +67,19 @@
                     <name>admin</name>
                     <password>password</password>                   
                 </configuration>
+                
                 <executions>                
                     <execution>
                         <id>start the server</id>
-                        <phase>pre-integeration-test</phase>
+                        <phase>pre-integration-test</phase>
                         <goals>
                             <goal>run</goal>
                         </goals>
                         <configuration>
                         </configuration>
                     </execution>
-                </executions>        
+                </executions>   
+                     
             </plugin>
             
 
